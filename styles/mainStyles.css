@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+:root {
+    --MainColor: #3dadcc;
+    --C1: #443C68;
+    --C2: #4c864a;
+    --C3: #0f0f10;
+    --C4: #9fb41d;
+    --C5: #ad5424;
+    --C6: #e9c3de;
+}
+
+.body {
+    height: 100vh;
+    background: var(--MainColor);
+    font-family: 'Merriweather', serif;
+}
+
+.headerTitle {
+    text-align: center;
+}
+
+.Banner {
+    height: 40vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(ellipse at left, var(--C2), var(--C4), var(--C6), transparent), radial-gradient(ellipse at right, var(--C1), var(--C3), var(--C5), transparent);
+    border-radius: 50px;
+    background-size: 400% 400%;
+    box-shadow: 0 5px 80px var(--C1);
+    -webkit-animation: AnimatedBG 12s ease-in-out infinite;
+}
+
+.NavUL {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.nav-A:hover::after {
+    /* Ein leeres Pseudo-Element nach dem Anker hinzufügen */
+    content: "";
+    /* color: rgb(224, 10, 10) !important; */
+    height: 2px;
+    background-color: blue;
+    -webkit-animation: anchorUnderline 1s forwards;
+    /* Positionieren Sie das Pseudo-Element relativ zum Anker */
+    position: absolute;
+    width: 100%;
+    /* Positionieren Sie den Unterstrich am linken Rand des Ankers */
+    left: 0;
+    /* Legen Sie den Abstand zwischen dem unteren Ende des Ankers und der Unterstreichung fest */
+    bottom: 1vh;
+}
+
+@-webkit-keyframes anchorUnderline {
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@-webkit-keyframes AnimatedBG {
+    0% {
+        background-position: 50% 100%;
+    }
+
+    50% {
+        background-position: 100% 150%;
+    }
+
+    100% {
+        background-position: 50% 100%;
+    }
+}
+
+/* Todo List Style */
+.myUl {
+    max-height: 10vh;
+    overflow: auto;
+}
+
+.noDot {
+    list-style-type: none;
+    list-style: none;
+    font-size: 1.4em;
+}
+
+/* Contact Form Style*/
+
+
+.contact-form {
+    /* die 3 schritten unten sind wichtig, damit contact-form selber in die mitte von sein eltern positioniert */
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    /*kinder von contact-form*/
+    text-align: center;
+    width: 50%;
+    box-shadow: 0 0 80px rgba(104, 1, 222, 0.258);
+    border-radius: 20px;
+}
