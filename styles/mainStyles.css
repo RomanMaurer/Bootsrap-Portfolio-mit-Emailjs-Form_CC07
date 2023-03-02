@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
 :root {
     --MainColor: #3dadcc;
     --C1: #443C68;
@@ -12,7 +13,7 @@
 .body {
     height: 100vh;
     background: var(--MainColor);
-    font-family: 'Merriweather', serif;
+    font-family: 'Merriweather', sans-serif;
 }
 
 .headerTitle {
@@ -20,11 +21,11 @@
 }
 
 .Banner {
-    height: 40vh;
+    height: 100%;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    /*top: 50%;*/
+    /*left: 50%;*/
+    /*transform: translate(-50%, -50%);*/
     background: radial-gradient(ellipse at left, var(--C2), var(--C4), var(--C6), transparent), radial-gradient(ellipse at right, var(--C1), var(--C3), var(--C5), transparent);
     border-radius: 50px;
     background-size: 400% 400%;
@@ -38,23 +39,43 @@
     gap: 20px;
 }
 
-.nav-A:hover::after {
-    /* Ein leeres Pseudo-Element nach dem Anker hinzufügen */
-    content: "";
-    /* color: rgb(224, 10, 10) !important; */
-    height: 2px;
-    background-color: blue;
-    -webkit-animation: anchorUnderline 1s forwards;
-    /* Positionieren Sie das Pseudo-Element relativ zum Anker */
-    position: absolute;
-    width: 100%;
-    /* Positionieren Sie den Unterstrich am linken Rand des Ankers */
-    left: 0;
-    /* Legen Sie den Abstand zwischen dem unteren Ende des Ankers und der Unterstreichung fest */
-    bottom: 1vh;
+.nav-A {
+    position: relative;
 }
 
-@-webkit-keyframes anchorUnderline {
+.nav-A:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background-color: yellow;
+    -webkit-animation: width 0.5s ease;
+}
+
+.nav-A:hover:before {
+    width: 100%;
+}
+
+.underline {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background-color: #f80606;
+    -webkit-animation: underLine 0.3s ease-out forwards;
+}
+
+.col-4 img {
+    width: 400px;
+    height: 400px;
+    box-shadow: 0px 0px 50px rgb(246, 255, 0);
+}
+
+@-webkit-keyframes underLine {
     from {
         width: 0%;
     }
@@ -96,6 +117,7 @@
 .contact-form {
     /* die 3 schritten unten sind wichtig, damit contact-form selber in die mitte von sein eltern positioniert */
     position: absolute;
+    top: 30%;
     left: 50%;
     transform: translate(-50%);
     /*kinder von contact-form*/
